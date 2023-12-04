@@ -8,5 +8,5 @@
 
 void marve_print(const char *amessage)
 {
-	write(1, amessage, strlen(amessage));
+	write(STDOUT_FILENO, amessage, strlen(amessage));
 }

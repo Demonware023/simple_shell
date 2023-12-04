@@ -15,20 +15,34 @@ int exe(char *command, char *shell)
 	char *token;/* Stores tokenized inputs*/
 	char *argv[100];
 	pid_t child;/* Creates a child process if a coommand is executed.*/
+	char *path;
+	char *path_copy;
+	char *dir;
+	char full_path[1024];
 
 	token = strtok(command, delim);/* Tokenize*/
 	while (token != NULL)
 	{
-		if (strcmp(token, "-l") == 0)/* Removes -l argument*/
-		{
-			fprintf(stderr, "%s: No such file or directory\n", shell);
-			return (-1);/* Error but doesnt exit program*/
-		}
 		argv[argc++] = token;
 		token = strtok(NULL, delim);/* Next command*/
 	}
 
 	argv[argc] = NULL;
+
+	path = getenv("PATH");
+	path_copy = strdup(path);
+	dir = strtok(path_copy, ":");
+	while (dir != NULL)
+	{
+		snprintf(full_path, sizeof(full_path), "%s/%s", dir, argv[0]);
+		if (access(full_path, F_OK) == 0)
+		{
+			argv[0] = full_path;
+			break;
+		}
+		dir = strtok(NULL, ":");
+	}
+	free(path_copy);
 
 	child = fork();/* Creates a child process to run the command*/
 	if (child == -1)
