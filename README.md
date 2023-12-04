@@ -1,11 +1,16 @@
 Project Title: ALX C Simple Shell Project
 
+
+
 Project Objective: To develop a robust shell program capable of emulating the functionalities of the Unix Shell/Bourne Again Shell (bash) using the C programming language.
+
 
 
 Project Overview
 
 The ALX C - simple shell group project is a comprehensive undertaking that challenges students to develop a robust shell program capable of emulating the functionalities of the Unix Shell/Bourne Again Shell (bash). This project forms a crucial component of the low-level programming and algorithm curriculum at the renowned ALX Holberton School. This project is a challenging and rewarding experience that provides students with hands-on experience in various aspects of shell programming. Through this project, students gain a deep understanding of low-level programming concepts, system calls, and process management. They also develop their problem-solving and debugging skills, which are essential for success in the field of software engineering.
+
+
 
 Project Team:
 
@@ -22,6 +27,7 @@ The primary objectives of the ALX C - simple shell group project are to:
 - Gain hands-on experience in parsing input commands, executing commands, managing child processes, handling input/output redirection, and implementing environmental variable manipulation.
 - Build a simple command-line interface (CLI) that provides a user-friendly interface for interacting with the shell.
 - Enhance problem-solving and debugging skills through the application of low-level programming concepts to a real-world programming task.
+
 
 
 Project Requirements
@@ -51,6 +57,5 @@ Basics of C
 Basics of thinking like an engineer
 Learning how to learn
 Since joining ALX, I have been able to accomplish multiple things that I never knew I could do with a laptop/system. This exciting project has demonstrated my ability to build my own shell and terminal.
-
 
 The successful completion of the ALX C - simple shell group project demonstrates a student's proficiency in shell programming and their ability to apply low-level programming concepts to build functional software applications. Students who successfully complete this project are well-equipped to tackle more advanced programming challenges and pursue careers in software engineering.
