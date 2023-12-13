@@ -58,4 +58,43 @@ Basics of thinking like an engineer
 Learning how to learn
 Since joining ALX, I have been able to accomplish multiple things that I never knew I could do with a laptop/system. This exciting project has demonstrated my ability to build my own shell and terminal.
 
+
+
+Yeah uh
+Look, fuck all that "happy to be here" shit that y'all want me on
+I'm the big homie, they still be tryna lil' bro me dog
+Like I should fall in line
+Like I should alert niggas when I'm 'bout to drop somethin' crazy
+And not say I'm the greatest of my generation
+Like I should be dressin' different
+Like I should be less aggressive and pessimistic
+Like I should be way more nervous and less dismissive
+Like I should be on my best behavior
+And not talk my shit and do it major like the niggas who paved the way for us
+Like I didn't study the game to the letter
+And understand that I'm not doin' it the same, man, I'm doin' it better
+Like I didn't make that clearer this year
+Like I should feel, I don't know, guilty for saying that
+They should put a couple more mirrors in here so I can stare at myself
+These are usually just some thoughts that I would share with myself
+But I thought "Fuck it", it's worth it to share 'em with someone else more than Paris for once
+I text her from time to time, she a mom now
+I guess sometimes life forces us to calm down
+I told her that she could live with me if she need to, I got a compound
+But I think she's straight
+'Cause she supported since Hot Beats right before Wayne came and got me
+Out of the backroom where I was rapping with Jas over beats that I shouldn't have
+In the hopes for the glory
+He walked right past in the hallway
+Three months later I'm his artist
+He probably wouldn't remember that story
+But that shit stick with me
+Always couldn't believe when he called me
+You never know, it could happen to you
+And I just spent four Ferraris all on a brand new Bugatti
+And did that shit 'cause it's something to do, yeah
+I guess that's just who I became, dawg
+Nothing was the same, dawg
+
+
 The successful completion of the ALX C - simple shell group project demonstrates a student's proficiency in shell programming and their ability to apply low-level programming concepts to build functional software applications. Students who successfully complete this project are well-equipped to tackle more advanced programming challenges and pursue careers in software engineering.
