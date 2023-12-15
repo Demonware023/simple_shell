@@ -39,4 +39,12 @@ int read_input(char *command, size_t size);
   */
 int exe(const char *command, char *argv[], char *envp[]);
 
+/**
+  * print_error - function to print error messages.
+  * @argv: argv[0] is the name of the program.
+  * @args: args[0] is the command taht was attempted to execute.
+  * Return: void.
+  */
+void print_error(char *argv[], char *args[]);
+
 #endif/* MAIN_H */

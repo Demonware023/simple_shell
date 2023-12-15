@@ -4,7 +4,6 @@
   * read_input - takes input from the user.
   * @command: commands passed.
   * @size: amount of the commands.
-  * @stream: buf used to store the strinds passed by the user.
   * Return: Always 0 Success.
   */
 

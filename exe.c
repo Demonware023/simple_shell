@@ -11,7 +11,6 @@
 int exe(const char *command, char *argv[], char *envp[])
 {
 	char *args[2];
-
 	pid_t child_pid;
 
 	args[0] = strdup(command);
@@ -28,19 +27,7 @@ int exe(const char *command, char *argv[], char *envp[])
 	else if (child_pid == 0)
 	{
 		execve(args[0], args, envp);
-
-		if (!isatty(STDIN_FILENO))
-		{
-			marve_print(argv[0]);
-			marve_print(": 1: ");
-			marve_print(args[0]);
-			marve_print(": not found\n");
-		}
-		else
-		{
-			marve_print(argv[0]);
-			marve_print(": No such file or directory\n");
-		}
+		print_error(argv, args);
 		exit(EXIT_FAILURE);
 	}
 	else
