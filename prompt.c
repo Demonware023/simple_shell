@@ -7,5 +7,9 @@
 
 void infinite_prompt(void)
 {
-	marve_print("demonshell($) ");
+	/* If its the terminal*/
+	if (isatty(STDIN_FILENO))
+	{
+		marve_print("demonshell($) ");
+	}
 }

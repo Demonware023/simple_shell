@@ -26,17 +26,17 @@ void infinite_prompt(void);
   * read_input - reads user input from the keyboard.
   * @command: command passed.
   * @size: size of commands
-  * @stream: Buf or stream to save the input.
   * Return: Always 0 Success.
   */
-int read_input(char *command, size_t size, FILE *stream);
+int read_input(char *command, size_t size);
 
 /**
   * exe - Execute the shell.
   * @command: Command to execute.
-  * @shell: Name of the shell for printing errors.
+  * @argv: Name of the shell for printing errors.
+  * @envp: enviroment variable.
   * Return: Always 0 Sucess.
   */
-int exe(char *command, char *shell);
+int exe(const char *command, char *argv[], char *envp[]);
 
 #endif/* MAIN_H */
