@@ -23,12 +23,12 @@ int arg_handler(const char *command, char *argv[], char *envp[])
 
 	args[0] = strdup(command);
 
-	for (i = 0 ; i < arg_count ; i++)
+	for (i = 1 ; i < arg_count ; i++)
 	{
-		args[i+1] = strdup(argv[i]);
+		args[i] = strdup(argv[i]);
 	}
 
-	args[arg_count+1] = NULL;
+	args[arg_count] = NULL;
 
 	child_pid = fork();
 
