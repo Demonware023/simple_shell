@@ -47,4 +47,6 @@ int exe(const char *command, char *argv[], char *envp[]);
   */
 void print_error(char *argv[], char *args[]);
 
+int arg_handler(const char *command, char *argv[], char *envp[]);
+
 #endif/* MAIN_H */

@@ -18,7 +18,6 @@ void print_error(char *argv[], char *args[])
 	}
 	else
 	{
-		marve_print("./");
 		marve_print(argv[0]);
 		marve_print(": No such file or directory\n");
 	}

@@ -20,7 +20,7 @@ int main(int argc, char **argv, char **envp)
 
 		if (strlen(command) > 0)
 		{
-			exe(command, argv, envp);
+			arg_handler(command, argv, envp);
 		}
 	}
 
