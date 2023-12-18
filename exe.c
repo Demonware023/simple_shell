@@ -8,34 +8,81 @@
   * Return: Always 0 Success.
   */
 
-int exe(const char *command, char *argv[], char *envp[])
+char *search_path(char *file) {
+    char *PATH = strdup(getenv("PATH"));
+    char *p = strtok(PATH, ":");
+    char *fullpath = malloc(512);
+    
+    while(p != NULL) {
+        sprintf(fullpath, "%s/%s", p, file);
+        if(access(fullpath, F_OK) != -1) {
+			free(PATH);
+            return fullpath;
+        }
+        p = strtok(NULL, ":");
+    }
+    
+	free(PATH);
+	return NULL;
+}
+
+int exe(char *command, char *argv[], char *envp[])
 {
-	char *args[2];
-	pid_t child_pid;
-
-	args[0] = strdup(command);
-	args[1] = NULL;
-
-	child_pid = fork();
-
-	if (child_pid == -1)
+    char *args[64];
+    pid_t child_pid;
+	char *command_copy = strdup(command);
+    char *token;
+    int j, i = 0;
+	char *fullpath;
+	char error_message[] = ": No such file or directory\n";
+	
+	token = strtok(command_copy, " ");
+    while(token != NULL) {
+        args[i] = strdup(token);
+        token = strtok(NULL, " ");
+        i++;
+    }
+    args[i] = NULL;
+	
+	if (args[0][0] == '/')
 	{
-		marve_print(argv[0]);
-		marve_print(": Error forking process.\n");
-		exit(EXIT_FAILURE);
-	}
-	else if (child_pid == 0)
-	{
-		execve(args[0], args, envp);
-		print_error(argv, args);
-		exit(EXIT_FAILURE);
+		fullpath = strdup(args[0]);
 	}
 	else
 	{
-		wait(NULL);
+		fullpath = search_path(args[0]);
 	}
 
-	free(args[0]);
+	if(fullpath == NULL) {
+        write(1, argv[0], strlen(argv[0]));
+        write(1, error_message, strlen(error_message));
+        free(command_copy);
+        return 1;
+    }
 
-	return (0);
+    child_pid = fork();
+
+    if (child_pid == -1)
+    {
+        marve_print(argv[0]);
+        marve_print(": Error forking process.\n");
+        exit(EXIT_FAILURE);
+    }
+    else if (child_pid == 0)
+    {
+        execve(fullpath, args, envp);
+        print_error(argv, args);
+        exit(EXIT_FAILURE);
+    }
+    else
+    {
+        wait(NULL);
+    }
+
+    free(fullpath);
+    for (j = 0; j < i; j++) {
+        free(args[j]);
+    }
+
+    return (0);
 }
