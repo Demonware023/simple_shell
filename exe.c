@@ -28,13 +28,13 @@ char *search_path(char *file) {
 
 int exe(char *command, char *argv[], char *envp[])
 {
-    char *args[64];
-    pid_t child_pid;
+    	char *args[64];
+    	pid_t child_pid;
 	char *command_copy = strdup(command);
-    char *token;
-    int j, i = 0;
+    	char *token;
+    	int j, i = 0;
 	char *fullpath;
-	char error_message[] = ": No such file or directory\n";
+	/* char error_message[] = ": No such file or directory\n";*/
 	
 	token = strtok(command_copy, " ");
     while(token != NULL) {
@@ -55,8 +55,10 @@ int exe(char *command, char *argv[], char *envp[])
 
 	if(fullpath == NULL) {
         write(1, argv[0], strlen(argv[0]));
-        write(1, error_message, strlen(error_message));
-        free(command_copy);
+	write(1, ": 1: ", 5);
+	write(1, args[0], strlen(args[0]));
+	write(1, ": not found\n", 12);
+	free(command_copy);
         return 1;
     }
 
