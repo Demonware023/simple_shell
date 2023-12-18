@@ -6,7 +6,9 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <errno.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 
 /**
   * marve_print - built printf function
@@ -28,7 +30,7 @@ void infinite_prompt(void);
   * @size: size of commands
   * Return: Always 0 Success.
   */
-int read_input(char *command, size_t size);
+int read_input(char **command, size_t *size);
 
 /**
   * exe - Execute the shell.
@@ -37,7 +39,7 @@ int read_input(char *command, size_t size);
   * @envp: enviroment variable.
   * Return: Always 0 Sucess.
   */
-int exe(const char *command, char *argv[], char *envp[]);
+int exe(char *command, char *argv[], char *envp[]);
 
 /**
   * print_error - function to print error messages.
@@ -46,7 +48,8 @@ int exe(const char *command, char *argv[], char *envp[]);
   * Return: void.
   */
 void print_error(char *argv[], char *args[]);
-
-int arg_handler(const char *command, char *argv[], char *envp[]);
+ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
+int arg_handler(char *command, char *argv[], char *envp[]);
+int path_handler(char *command, char *argv[], char *envp[]);
 
 #endif/* MAIN_H */
