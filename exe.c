@@ -6,7 +6,7 @@
   * @argv:Argument vector.
   * @envp: Enviroment variable.
   * Return: Always 0 Success.
-  */
+  */ 
 
 char *search_path(char *file) {
     char *PATH = strdup(getenv("PATH"));
@@ -34,10 +34,10 @@ int exe(char *command, char *argv[], char *envp[])
     	char *token;
     	int j, i = 0;
 	char *fullpath;
-	/* char error_message[] = ": No such file or directory\n";*/
+	char error_message[] = ": No such file or directory\n";
 	
 	token = strtok(command_copy, " ");
-    while(token != NULL) {
+    	while(token != NULL) {
         args[i] = strdup(token);
         token = strtok(NULL, " ");
         i++;
@@ -55,9 +55,7 @@ int exe(char *command, char *argv[], char *envp[])
 
 	if(fullpath == NULL) {
         write(1, argv[0], strlen(argv[0]));
-	write(1, ": 1: ", 5);
-	write(1, args[0], strlen(args[0]));
-	write(1, ": not found\n", 12);
+	write(1, error_message, strlen(error_message));
 	free(command_copy);
         return 1;
     }
